@@ -61,7 +61,7 @@ pipeline {
             }
 			sh 'npm install'
 			sh 'echo "checking"'
-			sh 'echo properties.REST_API_URL'
+			echo properties.REST_API_URL
 			sh 'sed -i "s/REST_API_URL=.*/REST_API_URL="+properties.REST_API_URL+"/" .env'
            // sh 'npm start'
             println env.BRANCH_NAME
