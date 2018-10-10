@@ -10,7 +10,7 @@ pipeline {
     stage('build') {
 	    when {
         anyOf {
-          branch 'master';
+          branch 'devlop';
         }
       }
 	  steps {
