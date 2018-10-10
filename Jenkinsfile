@@ -52,6 +52,11 @@ pipeline {
 		}
 		steps 
 		{
+		    script 
+			{
+                loadProperties()
+                echo "Later one ${properties.REST_API_URL}"
+            }
 			sh 'npm install'
            // sh 'npm start'
             println env.BRANCH_NAME
