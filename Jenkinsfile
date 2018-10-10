@@ -1,10 +1,7 @@
 pipeline {
   agent any
     
-  tools {nodejs "node"}
-    
-  stages {
-        
+  stages {  
     stage('Clone') {
       steps {
         checkout scm
