@@ -1,5 +1,5 @@
 properties = null     
-
+ 
 def loadProperties() {
     node {
         checkout scm
