@@ -36,10 +36,9 @@ pipeline {
 		    script 
 			{
                 loadProperties()
-  
-				sed -i "s/REST_API_URL=.*/REST_API_URL=${properties.REST_API_URL}/" .env
             }
 			sh 'npm install'
+			sh 'sed -i "s/REST_API_URL=.*/REST_API_URL=${properties.REST_API_URL}/" .env'
            // sh 'npm start'
             println env.BRANCH_NAME
         }
@@ -58,10 +57,9 @@ pipeline {
 		    script 
 			{
                 loadProperties()
-
-				sed -i "s/REST_API_URL=.*/REST_API_URL=${properties.REST_API_URL}/" .env
             }
 			sh 'npm install'
+			sh 'sed -i "s/REST_API_URL=.*/REST_API_URL=${properties.REST_API_URL}/" .env'
            // sh 'npm start'
             println env.BRANCH_NAME
         }
