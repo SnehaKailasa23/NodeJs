@@ -1,3 +1,14 @@
+properties = null     
+
+def loadProperties() {
+    node {
+        checkout scm
+        properties = new Properties()
+        File propertiesFile = new File("${workspace}/Devlop.properties")
+        properties.load(propertiesFile.newDataInputStream())
+        echo "Immediate one ${properties.REST_API_URL}"
+    }
+}
 pipeline {
   agent any
     
@@ -20,8 +31,11 @@ pipeline {
 		}
 		steps 
 		{
-		    def props = readProperties  file: 'Devlop.properties'
-			println props["REST_API_URL"]
+		    script 
+			{
+                loadProperties()
+                echo "Later one ${properties.REST_API_URL}"
+            }
 			sh 'npm install'
            // sh 'npm start'
             println env.BRANCH_NAME
