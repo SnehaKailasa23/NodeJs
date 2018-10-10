@@ -36,7 +36,7 @@ pipeline {
 		    script 
 			{
                 loadProperties()
-                //echo "Later one ${properties.REST_API_URL}"
+  
 				sed -i "s/REST_API_URL=.*/REST_API_URL=${properties.REST_API_URL}/" .env
             }
 			sh 'npm install'
@@ -58,7 +58,7 @@ pipeline {
 		    script 
 			{
                 loadProperties()
-                //echo "Later one ${properties.REST_API_URL}"
+
 				sed -i "s/REST_API_URL=.*/REST_API_URL=${properties.REST_API_URL}/" .env
             }
 			sh 'npm install'
