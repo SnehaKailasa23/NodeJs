@@ -8,6 +8,11 @@ pipeline {
       }
     }
     stage('build') {
+	    when {
+        anyOf {
+          branch 'master';
+        }
+      }
 	  steps {
 	    sh 'npm install'
            // sh 'npm start'
