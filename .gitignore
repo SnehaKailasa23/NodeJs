@@ -1,0 +1,14 @@
+/node_modules
+/dist
+/.vscode
+
+.env
+package-lock.json
+
+# IDE's
+.idea/*
+/nb_project
+
+# Python Cache
+/Calculations/__pycache__
+__pycache__
