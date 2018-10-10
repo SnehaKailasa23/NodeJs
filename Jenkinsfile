@@ -3,11 +3,12 @@ properties = null
 def loadProperties() {
     node {
         checkout scm
+		File propertiesFile
         properties = new Properties()
 		if(env.branch == "devlop")
-        File propertiesFile = new File("${workspace}/Devlop.properties")
+        propertiesFile = new File("${workspace}/Devlop.properties")
 		if(env.branch == "master")
-        File propertiesFile = new File("${workspace}/master.properties")
+        propertiesFile = new File("${workspace}/master.properties")
         properties.load(propertiesFile.newDataInputStream())
     }
 }
