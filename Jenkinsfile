@@ -2,6 +2,7 @@ properties = null
 
 def loadProperties() {
     node {
+	cleanWs()
         checkout scm
         properties = new Properties()
 		File propertiesFile = new File("${workspace}/Devlop.properties")
@@ -62,7 +63,7 @@ pipeline {
 			echo "#############22222222########"
 			sh """echo $properties.REST_API_URL"""
 			sh 'cat .env'
-			sh """sed -i "s/REST_API_URL=*/REST_API_URL=$properties.REST_API_URL/" .env"""
+			sh """sed -i "s/REST_API_URL=*/REST_API_URL=\"$properties.REST_API_URL\"/" .env"""
 			sh 'cat .env'
         }
 	}
