@@ -60,9 +60,10 @@ pipeline {
             }
 			sh 'npm install'
 			echo "#######111111111#########"
-			sh 'echo $REST_API_URL'
+			sh "echo $REST_API_URL"
 			echo "#############22222222########"
-			sh 'echo $properties.REST_API_URL'
+			sh '''echo $properties.REST_API_URL'''
+			sh """echo $properties.REST_API_URL"""
 			echo properties.REST_API_URL
 			//sh 'sed -i "s/REST_API_URL=*/REST_API_URL=properties.REST_API_URL/" .env'
         }
