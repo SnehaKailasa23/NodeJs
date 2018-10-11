@@ -59,8 +59,6 @@ pipeline {
                 loadProperties()
             }
 			sh 'npm install'
-			echo "#######111111111#########"
-			sh "echo $REST_API_URL"
 			echo "#############22222222########"
 			sh '''echo $properties.REST_API_URL'''
 			sh """echo $properties.REST_API_URL"""
