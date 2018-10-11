@@ -59,13 +59,12 @@ pipeline {
                 loadProperties()
             }
 			sh 'npm install'
-			sh 'echo "checking"'
+			echo "#######111111111#########"
+			sh 'echo $REST_API_URL'
+			echo "#############22222222########"
+			sh 'echo $properties.REST_API_URL'
 			echo properties.REST_API_URL
-			sh 'cat .env'
-			sh 'sed -i "s/REST_API_URL=*/REST_API_URL=properties.REST_API_URL/" .env'
-           // sh 'npm start'
-		   sh 'cat .env'
-            println env.BRANCH_NAME
+			//sh 'sed -i "s/REST_API_URL=*/REST_API_URL=properties.REST_API_URL/" .env'
         }
 	}
   }
