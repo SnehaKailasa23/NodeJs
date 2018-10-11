@@ -39,8 +39,8 @@ pipeline {
                 loadProperties()
             }
 			sh 'npm install'
-           // sh 'npm start'
-            println env.BRANCH_NAME
+            sh 'npm start'
+            
         }
 	}
 	stage('Release') 
@@ -56,15 +56,13 @@ pipeline {
 		{
 		    script 
 			{
-                loadProperties()
+			    def props = readProperties file: 'master.properties'
+				def Var1= props['REST_API_URL']
+				echo Var1
+               // loadProperties()
             }
 			sh 'npm install'
-			echo "#############22222222########"
-			sh """echo $properties.REST_API_URL"""
-			sh 'cat .env'
-			sh """ sed -i "/REST_API_URL/cREST_API_URL = \\"$properties.REST_API_URL\\"" .env """
- 		//	sh """sed -i s/REST_API_URL=*/REST_API_URL=\"$properties.REST_API_URL\"/" .env"""
-			sh 'cat .env'
+            // sh """ sed -i "/REST_API_URL/cREST_API_URL = \\"$properties.REST_API_URL\\"" .env """
         }
 	}
   }
